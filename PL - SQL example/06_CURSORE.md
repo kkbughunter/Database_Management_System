@@ -49,8 +49,6 @@ Implicit cursors are convenient for simple operations where you don't need fine-
 They simplify the code by automatically managing the result set processing for you.
 
 ```sql
-DECLARE
-   emp_rec employees%ROWTYPE;
 BEGIN
    -- Implicit Cursor
    FOR emp_row IN (SELECT employee_id, last_name, salary FROM employees WHERE salary <= 6000) LOOP
