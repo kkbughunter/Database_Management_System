@@ -9,27 +9,7 @@ perform complex calculations, maintain audit trails, and automate certain databa
 2. Database Triggers: Database triggers are database objects that are automatically executed in response to database events, such as INSERT, UPDATE, DELETE, or DDL statements. They are defined at the database level and can be used to enforce data integrity, maintain audit trails, or perform database-level operations.
 
 ### Example 1
-```sql
-CREATE TABLE numbers(
-    number1 NUMBER(5),
-    number2 NUMBER(5)
-);
-CREATE TABLE number_logs(
-    number1 NUMBER(5),
-    number2 NUMBER(5),
-    res NUMBER(10)
-);
-INSERT INTO numbers VALUES(10,50);
-```
-```sql
-CREATE TRIGGER add_two_numbers_log
-AFTER INSERT ON numbers
-FOR EACH ROW
-BEGIN
-  INSERT INTO number_logs (number1, number2, sum)
-  VALUES (:new.number1, :new.number2, :new.number1 + :new.number2);
-END;
-```
+
 new try to insert a new data
 ```sql
 INSERT INTO numbers VALUES(77,36);
@@ -64,6 +44,7 @@ BEGIN
         RAISE_APPLICATION_ERROR(-20001, 'Invalid mark! Marks should be less than or equal to 100.');
     END IF;
 END;
+/
 ```
 now try with this Insert Query (it give the trigger error)
 ```sql
