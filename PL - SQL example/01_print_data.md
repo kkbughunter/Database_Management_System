@@ -14,7 +14,7 @@ END;
 DECLARE 
 	x NUMBER(3);
 BEGIN
-	temp := 3;
+	x := 3;
 	dbms_output.put_line('Value of X : ' || x);
 END;
 ```
