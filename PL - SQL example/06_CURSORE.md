@@ -84,17 +84,3 @@ END;
 2. Automatic Cursor Handling: Cursor loops handle cursor operations (open, fetch, close) automatically.
 3. Efficient Performance: Cursor loops fetch result sets in batches for improved performance.
 4. Streamlined Iteration: Cursor loops iterate over result sets row by row with a clean syntax.
-
-
-## Anonymous PL/SQL Code:
-Anonymous PL/SQL blocks are blocks of code that are executed directly without being stored as named procedures or functions. 
-They are typically used for ad-hoc or one-time tasks.
-  - The Above all given code are example of **Anonymous PL/SQL Code**.
-
-## PL/SQL Procedure Parameters:
-
-
-
-
-
-
