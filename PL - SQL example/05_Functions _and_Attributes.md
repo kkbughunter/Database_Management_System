@@ -7,6 +7,7 @@ BEGIN
     result := num * num;
     RETURN result;
 END;
+/
 ```
 call the Function 
 ```sql
@@ -16,6 +17,7 @@ BEGIN
     square_result := calculate_square(15); -- Calling the function with argument 5
     dbms_output.put_line('Square Result: ' || square_result);
 END;
+/
 ```
 
 # PL/SQL Attributes
@@ -51,7 +53,7 @@ BEGIN
    dbms_output.put_line('Employee Name: ' || emp_name);
    dbms_output.put_line('Employee Salary: ' || emp_salary);
 END;
-
+/
 ```
 ## %ROWTYPE
 By using %ROWTYPE, we don't need to explicitly declare variables for each column in the table. 
@@ -68,5 +70,6 @@ BEGIN
    dbms_output.put_line('Last Name: ' || emp_rec.last_name);
    dbms_output.put_line('Salary: ' || emp_rec.salary);
 END;
+/
 ```
 
