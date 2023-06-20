@@ -1,11 +1,12 @@
-REM: Create data_base.
-REM: INSERT INTO CONTINENTS VALUES(1,'america');
+DROP TABLE Customers ;
+DROP TABLE Orders  ;
+DROP TABLE Shippings  ;
+
 CREATE TABLE CONTINENTS(
     ContId NUMBER(3) CONSTRAINT CONTINENTS_PK_ContId PRIMARY KEY,
     Continent VARCHAR(25)
 );
 
-REM: INSERT INTO COUNTRIES VALUES(1,'usa',1);
 CREATE TABLE COUNTRIES(
     CountryId NUMBER(3) CONSTRAINT countrues_PK_CountryId PRIMARY KEY,
     CountryName VARCHAR(25),
@@ -13,7 +14,6 @@ CREATE TABLE COUNTRIES(
     CONSTRAINT COUNTRIES_FK_Continent FOREIGN KEY (Continent) REFERENCES CONTINENTS(ContId)
 );
 
-REM: INSERT INTO CAR_MAKERS VALUES(1,'amc','American Motor Company',1);
 CREATE TABLE CAR_MAKERS(
     makerId NUMBER(3) CONSTRAINT CAR_MAKERS_PK_makerId PRIMARY KEY,
     Maker VARCHAR(50),
@@ -22,7 +22,6 @@ CREATE TABLE CAR_MAKERS(
     CONSTRAINT CAR_NAMES_FK_Country FOREIGN KEY (Country) REFERENCES COUNTRIES(CountryId)
 );
 
-REM: INSERT INTO MODEL_DETAILS VALUES(1,1,'amc');
 CREATE TABLE MODEL_DETAILS(
     ModelId NUMBER(3) CONSTRAINT MODEL_DETAILS_PK_ModelId PRIMARY KEY,
     maker NUMBER(3),
@@ -30,7 +29,6 @@ CREATE TABLE MODEL_DETAILS(
     CONSTRAINT MODEL_DETAILS_FK_Maker FOREIGN KEY (maker) REFERENCES CAR_MAKERS(makerId)
 );
 
-REM:INSERT INTO CAR_NAMES VALUES(1,'chevrolet','chevrolet chevelle malibu');
 CREATE TABLE CAR_NAMES(
     makerId NUMBER(3) CONSTRAINT CAR_NAMESs_PK_makerId PRIMARY KEY,
     Model VARCHAR(50),
@@ -38,7 +36,6 @@ CREATE TABLE CAR_NAMES(
     CONSTRAINT CAR_NAMES_FK_MakeDescription FOREIGN KEY (Model) REFERENCES MODEL_DETAILS(Model)
 );
 
-REM: INSERT INTO CAR_DETAILS VALUES(1,18,8,307,130,3504,12,1970);
 CREATE TABLE CAR_DETAILS(
     CarId NUMBER(3) CONSTRAINT CAR_dETAILS_PF_CarId PRIMARY KEY,
     MPG NUMBER(8),
@@ -51,9 +48,6 @@ CREATE TABLE CAR_DETAILS(
     CONSTRAINT CAR_DETAILS_FK_CarId FOREIGN KEY (CarId) REFERENCES CAR_NAMES(makerId)
 );
 
-REM Continents
-REM -----------
-REM ContId,Continent
 
 INSERT INTO CONTINENTS VALUES(1,'america');
 INSERT INTO CONTINENTS VALUES(2,'europe');
@@ -61,9 +55,6 @@ INSERT INTO CONTINENTS VALUES(3,'asia');
 INSERT INTO CONTINENTS VALUES(4,'africa');
 INSERT INTO CONTINENTS VALUES(5,'australia');
 
-REM COUNTRIES
-REM ---------
-REM CountryId,CountryName,Continent
 
 INSERT INTO COUNTRIES VALUES(1,'usa',1);
 INSERT INTO COUNTRIES VALUES(2,'germany',2);
@@ -81,9 +72,6 @@ INSERT INTO COUNTRIES VALUES(13,'egypt',4);
 INSERT INTO COUNTRIES VALUES(14,'mexico',1);
 INSERT INTO COUNTRIES VALUES(15,'brazil',1);
 
-REM CAR-MAKERS
-REM ---------------
-REM Id,Maker,FullName,Country
 
 INSERT INTO CAR_MAKERS VALUES(1,'amc','American Motor Company',1);
 INSERT INTO CAR_MAKERS VALUES(2,'volkswagen','Volkswagen',2);
@@ -109,9 +97,7 @@ INSERT INTO CAR_MAKERS VALUES(21,'volvo','Volvo',6);
 INSERT INTO CAR_MAKERS VALUES(22,'kia','Kia Motors',8);
 INSERT INTO CAR_MAKERS VALUES(23,'hyundai','Hyundai',8);
 
-REM MODEL_DETAILS
-REM ---------------
-REM ModelId,Maker,Model
+
 
 INSERT INTO MODEL_DETAILS VALUES(1,1,'amc');
 INSERT INTO MODEL_DETAILS VALUES(2,2,'audi');
@@ -151,10 +137,6 @@ INSERT INTO MODEL_DETAILS VALUES(35,6,'jeep');
 INSERT INTO MODEL_DETAILS VALUES(36,19,'scion');
 
 
-REM =========================================================
-REM CAR-NAMES
-REM ----------
-REM Id,Model,Description
 
 INSERT INTO CAR_NAMES VALUES(1,'chevrolet','chevrolet chevelle malibu');
 INSERT INTO CAR_NAMES VALUES(2,'buick','buick skylark 320');
@@ -562,14 +544,6 @@ INSERT INTO CAR_NAMES VALUES(403,'volkswagen','vw pickup');
 INSERT INTO CAR_NAMES VALUES(404,'dodge','dodge rampage');
 INSERT INTO CAR_NAMES VALUES(405,'ford','ford ranger');
 INSERT INTO CAR_NAMES VALUES(406,'chevrolet','chevy s-10');
-
-REM MPG (miles per gallon),
-REM # cylinders,
-REM engine displacement (cu. inches),
-REM horsepower,
-REM vehicle weight (lbs.),
-REM time to accelerate from O to 60 mph (sec.),
-REM model year,
 
 
 INSERT INTO CAR_dETAILS VALUES(1,18,8,307,130,3504,12,1970);
@@ -979,6 +953,8 @@ INSERT INTO CAR_dETAILS VALUES(404,32,4,135,84,2295,11.6,1982);
 INSERT INTO CAR_dETAILS VALUES(405,28,4,120,79,2625,18.6,1982);
 INSERT INTO CAR_dETAILS VALUES(406,31,4,119,82,2720,19.4,1982);
 
+
+
 -- - 1. Display the models that was not manufactured by any of the car makers.
 select  cn.Model
 From CAR_MAKERS cm,  CAR_NAMES cn
@@ -992,22 +968,14 @@ where c.CountryId = cm.Country
 group by cm.Country;
 
 -- - 3. Display the pair of cars (ID) that has same mileage, horsepower and acceleration. The pairs should not be repeated in the result.
-4. Display the number of cars produced by each car manufacturing company within
-each model. Sort the result by the company name.
-5. Display the model, name of car, mpg and weight of car(s) with maximum mileage
-among the heavy weight (bulky) cars. The car with weight more than the average
-weight of all cars is known as heavy weight (bulky) cars.
-6. Display the details (model,car_name,mileage,horsepower,acceleration,weight) of car(s)
-having mileage, horsepower, acceleration more than the average of mpg, horsepower,
-accel of all cars and its weight should be lesser than the average weight of all cars.
-7. List the year, car maker that manufactured maximum number of cars.
-8. Display the maker name, model name, car name, mileage and year of the car with the
-maximum mileage for each model having more than one car. Sort the result by the car
-maker.
-Write the following using Set Operations:
-9. Rewrite the query 1.
-10. List the car names (description) and its details that was manufactured on 1976 and
-1982.
+-- - 4. Display the number of cars produced by each car manufacturing company within each model. Sort the result by the company name.
+-- - 5. Display the model, name of car, mpg and weight of car(s) with maximum mileage among the heavy weight (bulky) cars. The car with weight more than the average weight of all cars is known as heavy weight (bulky) cars.
+-- - 6. Display the details (model,car_name,mileage,horsepower,acceleration,weight) of car(s) having mileage, horsepower, acceleration more than the average of mpg, horsepower, accel of all cars and its weight should be lesser than the average weight of all cars.
+-- - 7. List the year, car maker that manufactured maximum number of cars. 
+-- - 8. Display the maker name, model name, car name, mileage and year of the car with the maximum mileage for each model having more than one car. Sort the result by the car maker.
+-- - Write the following using Set Operations:
+-- - 9. Rewrite the query 1.
+-- - 10. List the car names (description) and its details that was manufactured on 1976 and 1982.
 
 
 
