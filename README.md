@@ -7,7 +7,7 @@ Lab Software"Oracle 11G https://drive.google.com/drive/u/1/folders/1b2zs1ybTZ2s4
 Install Video Demo https://www.youtube.com/watch?v=WXFUbGY1TOA <br>
  Install the Windows 64-bit with JDK 11 included https://www.oracle.com/database/sqldeveloper/technologies/download/ <br>
 Offical page to Install https://docs.oracle.com/en/database/oracle/oracle-database/index.html <br>
-Run Sql without install oracle DataBase https://livesql.oracle.com/apex/f?p=590:1:12338033282058:::RP:: <br>
+[Run Sql without install oracle DataBase](https://livesql.oracle.com/apex/f?p=590:1:12338033282058:::RP::) <br>
 Connect Oracle to NetBeans Lab Exp 9 VIDEO https://youtu.be/rgaAHcMXKcQ
   
   
