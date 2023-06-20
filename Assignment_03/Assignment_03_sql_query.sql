@@ -961,6 +961,11 @@ From CAR_MAKERS cm,  CAR_NAMES cn
 where cn.makerId != cm.makerId
 group by cn.Model;
 
+SELECT n.model
+FROM CAR_MAKERS m JOIN CAR_NAMES n 
+ON m.makerId != n.makerId
+GROUP BY(n.model);
+
 -- - 2. For all the continents list the number of car makers if there were a car manufacturing company.
 select  c.Continent, cm.Maker
 From COUNTRIES c,  CAR_MAKERS cm
