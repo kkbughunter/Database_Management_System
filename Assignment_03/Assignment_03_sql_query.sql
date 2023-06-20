@@ -980,11 +980,18 @@ INSERT INTO CAR_dETAILS VALUES(405,28,4,120,79,2625,18.6,1982);
 INSERT INTO CAR_dETAILS VALUES(406,31,4,119,82,2720,19.4,1982);
 
 -- - 1. Display the models that was not manufactured by any of the car makers.
+select  cn.Model
+From CAR_MAKERS cm,  CAR_NAMES cn
+where cn.makerId != cm.makerId
+group by cn.Model;
 
-2. For all the continents list the number of car makers if there were a car manufacturing
-company.
-3. Display the pair of cars (ID) that has same mileage, horsepower and acceleration.
-The pairs should not be repeated in the result.
+-- - 2. For all the continents list the number of car makers if there were a car manufacturing company.
+select  c.Continent, cm.Maker
+From COUNTRIES c,  CAR_MAKERS cm
+where c.CountryId = cm.Country
+group by cm.Country;
+
+-- - 3. Display the pair of cars (ID) that has same mileage, horsepower and acceleration. The pairs should not be repeated in the result.
 4. Display the number of cars produced by each car manufacturing company within
 each model. Sort the result by the company name.
 5. Display the model, name of car, mpg and weight of car(s) with maximum mileage
