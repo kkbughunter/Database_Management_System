@@ -37,6 +37,7 @@ BEGIN
    END LOOP;
    CLOSE emp_cursor;
 END;
+/
 ```
 
 Butt Oracle PL/SQL that is not associated with an explicitly declared cursor, Oracle implicitly opens a cursor to process that statement. 
@@ -59,7 +60,7 @@ BEGIN
       dbms_output.put_line('------------------');
    END LOOP;
 END;
-
+/
 ```
 ## Cursor FOR Loops:
 ```sql
@@ -79,6 +80,7 @@ BEGIN
       dbms_output.put_line('------------------');
    END LOOP;
 END;
+/
 ```
 1. Simplified Syntax: Cursor loops eliminate explicit cursor operations for easier code management.
 2. Automatic Cursor Handling: Cursor loops handle cursor operations (open, fetch, close) automatically.
