@@ -7,7 +7,7 @@
 [Install Video Demo](https://www.youtube.com/watch?v=WXFUbGY1TOA)<br>
 [Offical page to Install](https://docs.oracle.com/en/database/oracle/oracle-database/index.html) <br>
 [Run Sql without install oracle DataBase](https://livesql.oracle.com/apex/f?p=590:1:12338033282058:::RP::)<br>
-[Connect Oracle to NetBeans Lab Exp 9](https://youtu.be/rgaAHcMXKcQ)
+[Connect Oracle to NetBeans Lab Exp 9 (VIDEO)](https://youtu.be/rgaAHcMXKcQ)
   
   
   
