@@ -1,4 +1,4 @@
-#### Use Assignment 1 Table [Query](https://github.com/KKBUGHUNTER/Database_Management_System/blob/main/Assignment_01/Assignment_01_sql_query.sql)
+## Use Assignment 1 Table [Query](https://github.com/KKBUGHUNTER/Database_Management_System/blob/main/Assignment_01/Assignment_01_sql_query.sql)
 1. Calculate the total number of reservations for each boat:
 ```sql
 SELECT boat_id, COUNT(*) AS ReservationCount FROM Reservation GROUP BY boat_id;
@@ -59,7 +59,7 @@ JOIN tourists t ON r.tourists_id = t.tourists_id
 WHERE r.boat_id = 'Specific Boat ID';
 ```
 
-#### Use Assignment 3 Table [Query](https://github.com/KKBUGHUNTER/Database_Management_System/blob/main/Assignment_03/Assignment_03_sql_query.sql)
+## Use Assignment 3 Table [Query](https://github.com/KKBUGHUNTER/Database_Management_System/blob/main/Assignment_03/Assignment_03_sql_query.sql)
 1. Find the count of cars per continent:
 ```sql
 SELECT c.Continent, COUNT(*) AS CarCount
