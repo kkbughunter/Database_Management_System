@@ -1,4 +1,4 @@
-
+#### Use Assignment 3 Table [Query](https://github.com/KKBUGHUNTER/Database_Management_System/blob/main/Assignment_03/Assignment_03_sql_query.sql)
 1. Find the count of cars per continent:
 ```sql
 SELECT c.Continent, COUNT(*) AS CarCount
