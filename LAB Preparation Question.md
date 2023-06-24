@@ -228,6 +228,16 @@ Query Questions using Views:
 
 # Question 3  set of questions based on a hypothetical "Event Management" table:
 ```sql
+CREATE TABLE Cities (
+    city_id INT PRIMARY KEY,
+    city_name VARCHAR(50)
+);
+CREATE TABLE Venues (
+    venue_id INT PRIMARY KEY,
+    venue_name VARCHAR(50),
+    city_id INT,
+    CONSTRAINT fk_city FOREIGN KEY (city_id) REFERENCES Cities(city_id)
+);
 CREATE TABLE Events (
     event_id INT PRIMARY KEY,
     event_name VARCHAR(50),
@@ -235,7 +245,6 @@ CREATE TABLE Events (
     venue_id INT,
     CONSTRAINT fk_venue  FOREIGN KEY (venue_id) REFERENCES Venues(venue_id)
 );
-
 CREATE TABLE Participants (
     participant_id INT PRIMARY KEY,
     participant_name VARCHAR(50),
@@ -243,29 +252,27 @@ CREATE TABLE Participants (
     CONSTRAINT fk_event FOREIGN KEY (event_id) REFERENCES Events(event_id)
 );
 
-CREATE TABLE Venues (
-    venue_id INT PRIMARY KEY,
-    venue_name VARCHAR(50),
-    city_id INT,
-    CONSTRAINT fk_city FOREIGN KEY (city_id) REFERENCES Cities(city_id)
-);
+INSERT INTO Cities (city_id, city_name)
+VALUES (1, 'New York');
+INSERT INTO Cities (city_id, city_name)
+VALUES (2, 'Los Angeles');
+INSERT INTO Cities (city_id, city_name)
+VALUES (3, 'Chicago');
 
-CREATE TABLE Cities (
-    city_id INT PRIMARY KEY,
-    city_name VARCHAR(50)
-);
-```
-1. Inserting data into the Events table:
-```sql
+INSERT INTO Venues (venue_id, venue_name, city_id)
+VALUES (1, 'Conference Center A', 1);
+INSERT INTO Venues (venue_id, venue_name, city_id)
+VALUES (2, 'Workshop Hall B', 2);
+INSERT INTO Venues (venue_id, venue_name, city_id)
+VALUES (3, 'Seminar Room C', 3);
+
 INSERT INTO Events (event_id, event_name, event_date, venue_id)
 VALUES (1, 'Conference A', '2023-07-15', 1);
 INSERT INTO Events (event_id, event_name, event_date, venue_id)
 VALUES (2, 'Workshop B', '2023-08-02', 2);
 INSERT INTO Events (event_id, event_name, event_date, venue_id)
 VALUES (3, 'Seminar C', '2023-09-10', 3);
-```
-2. Inserting data into the Participants table:
-```sql
+
 INSERT INTO Participants (participant_id, participant_name, event_id)
 VALUES (1, 'John Doe', 1);
 INSERT INTO Participants (participant_id, participant_name, event_id)
@@ -273,24 +280,7 @@ VALUES (2, 'Jane Smith', 2);
 INSERT INTO Participants (participant_id, participant_name, event_id)
 VALUES (3, 'Michael Johnson', 1);
 ```
-3. Inserting data into the Venues table:
-```sql
-INSERT INTO Venues (venue_id, venue_name, city_id)
-VALUES (1, 'Conference Center A', 1);
-INSERT INTO Venues (venue_id, venue_name, city_id)
-VALUES (2, 'Workshop Hall B', 2);
-INSERT INTO Venues (venue_id, venue_name, city_id)
-VALUES (3, 'Seminar Room C', 3);
-```
-4. Inserting data into the Cities table:
-```sql
-INSERT INTO Cities (city_id, city_name)
-VALUES (1, 'New York');
-INSERT INTO Cities (city_id, city_name)
-VALUES (2, 'Los Angeles');
-INSERT INTO Cities (city_id, city_name)
-VALUES (3, 'Chicago');
-```
+
 
 Query Questions using JOIN:
 1. Retrieve the event details (event ID, event name, event date, venue name) for all events.
