@@ -5,39 +5,29 @@ CREATE TABLE Customers (
     customer_id INT PRIMARY KEY,
     customer_name VARCHAR(50),
     city_id INT,
-    CONSTRAINT fk_city
-        FOREIGN KEY (city_id)
-        REFERENCES Cities(city_id)
+    CONSTRAINT fk_city FOREIGN KEY (city_id) REFERENCES Cities(city_id)
 );
 
 CREATE TABLE Orders (
     order_id INT PRIMARY KEY,
     order_date DATE,
     customer_id INT,
-    CONSTRAINT fk_customer
-        FOREIGN KEY (customer_id)
-        REFERENCES Customers(customer_id)
+    CONSTRAINT fk_customer FOREIGN KEY (customer_id)  REFERENCES Customers(customer_id)
 );
 
 CREATE TABLE Products (
     product_id INT PRIMARY KEY,
     product_name VARCHAR(50),
     category_id INT,
-    CONSTRAINT fk_category
-        FOREIGN KEY (category_id)
-        REFERENCES Categories(category_id)
+    CONSTRAINT fk_category  FOREIGN KEY (category_id)  REFERENCES Categories(category_id)
 );
 
 CREATE TABLE OrderItems (
     order_id INT,
     product_id INT,
     quantity INT,
-    CONSTRAINT fk_order
-        FOREIGN KEY (order_id)
-        REFERENCES Orders(order_id),
-    CONSTRAINT fk_product
-        FOREIGN KEY (product_id)
-        REFERENCES Products(product_id)
+    CONSTRAINT fk_order FOREIGN KEY (order_id) REFERENCES Orders(order_id),
+    CONSTRAINT fk_product  FOREIGN KEY (product_id) REFERENCES Products(product_id)
 );
 
 CREATE TABLE Categories (
@@ -144,30 +134,22 @@ CREATE TABLE Students (
     student_id INT PRIMARY KEY,
     student_name VARCHAR(50),
     department_id INT,
-    CONSTRAINT fk_department
-        FOREIGN KEY (department_id)
-        REFERENCES Departments(department_id)
+    CONSTRAINT fk_department  FOREIGN KEY (department_id) REFERENCES Departments(department_id)
 );
 
 CREATE TABLE Courses (
     course_id INT PRIMARY KEY,
     course_name VARCHAR(50),
     department_id INT,
-    CONSTRAINT fk_department
-        FOREIGN KEY (department_id)
-        REFERENCES Departments(department_id)
+    CONSTRAINT fk_department FOREIGN KEY (department_id) REFERENCES Departments(department_id)
 );
 
 CREATE TABLE Enrollments (
     student_id INT,
     course_id INT,
     grade INT,
-    CONSTRAINT fk_student
-        FOREIGN KEY (student_id)
-        REFERENCES Students(student_id),
-    CONSTRAINT fk_course
-        FOREIGN KEY (course_id)
-        REFERENCES Courses(course_id)
+    CONSTRAINT fk_student FOREIGN KEY (student_id) REFERENCES Students(student_id),
+    CONSTRAINT fk_course FOREIGN KEY (course_id) REFERENCES Courses(course_id)
 );
 
 CREATE TABLE Departments (
@@ -251,27 +233,21 @@ CREATE TABLE Events (
     event_name VARCHAR(50),
     event_date DATE,
     venue_id INT,
-    CONSTRAINT fk_venue
-        FOREIGN KEY (venue_id)
-        REFERENCES Venues(venue_id)
+    CONSTRAINT fk_venue  FOREIGN KEY (venue_id) REFERENCES Venues(venue_id)
 );
 
 CREATE TABLE Participants (
     participant_id INT PRIMARY KEY,
     participant_name VARCHAR(50),
     event_id INT,
-    CONSTRAINT fk_event
-        FOREIGN KEY (event_id)
-        REFERENCES Events(event_id)
+    CONSTRAINT fk_event FOREIGN KEY (event_id) REFERENCES Events(event_id)
 );
 
 CREATE TABLE Venues (
     venue_id INT PRIMARY KEY,
     venue_name VARCHAR(50),
     city_id INT,
-    CONSTRAINT fk_city
-        FOREIGN KEY (city_id)
-        REFERENCES Cities(city_id)
+    CONSTRAINT fk_city FOREIGN KEY (city_id) REFERENCES Cities(city_id)
 );
 
 CREATE TABLE Cities (
