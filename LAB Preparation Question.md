@@ -1,6 +1,16 @@
 d# Lab Questions
 # Question 1  set of questions based on a hypothetical "Customers" table:
 ```sql
+CREATE TABLE Categories (
+    category_id INT PRIMARY KEY,
+    category_name VARCHAR(50)
+);
+
+CREATE TABLE Cities (
+    city_id INT PRIMARY KEY,
+    city_name VARCHAR(50)
+);
+
 CREATE TABLE Customers (
     customer_id INT PRIMARY KEY,
     customer_name VARCHAR(50),
@@ -28,16 +38,6 @@ CREATE TABLE OrderItems (
     quantity INT,
     CONSTRAINT fk_order FOREIGN KEY (order_id) REFERENCES Orders(order_id),
     CONSTRAINT fk_product  FOREIGN KEY (product_id) REFERENCES Products(product_id)
-);
-
-CREATE TABLE Categories (
-    category_id INT PRIMARY KEY,
-    category_name VARCHAR(50)
-);
-
-CREATE TABLE Cities (
-    city_id INT PRIMARY KEY,
-    city_name VARCHAR(50)
 );
 ```
 1. Inserting data into the Customers table:
