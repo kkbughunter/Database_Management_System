@@ -39,60 +39,30 @@ CREATE TABLE OrderItems (
     CONSTRAINT fk_order FOREIGN KEY (order_id) REFERENCES Orders(order_id),
     CONSTRAINT fk_product  FOREIGN KEY (product_id) REFERENCES Products(product_id)
 );
-```
-1. Inserting data into the Customers table:
-```sql
-INSERT INTO Customers (customer_id, customer_name, city_id)
-VALUES (1, 'John Doe', 1);
-INSERT INTO Customers (customer_id, customer_name, city_id)
-VALUES (2, 'Jane Smith', 2);
-INSERT INTO Customers (customer_id, customer_name, city_id)
-VALUES (3, 'Michael Johnson', 3);
-```
-2. Inserting data into the Orders table:
-```sql
-INSERT INTO Orders (order_id, order_date, customer_id)
-VALUES (1, '2023-06-01', 1);
-INSERT INTO Orders (order_id, order_date, customer_id)
-VALUES (2, '2023-06-10', 2);
-INSERT INTO Orders (order_id, order_date, customer_id)
-VALUES (3, '2023-06-15', 3);
-```
-3. Inserting data into the Products table:
-```sql
-INSERT INTO Products (product_id, product_name, category_id)
-VALUES (1, 'Widget A', 1);
-INSERT INTO Products (product_id, product_name, category_id)
-VALUES (2, 'Widget B', 1);
-INSERT INTO Products (product_id, product_name, category_id)
-VALUES (3, 'Gadget X', 2);
-```
-4. Inserting data into the OrderItems table:
-```sql
-INSERT INTO OrderItems (order_id, product_id, quantity)
-VALUES (1, 1, 5);
-INSERT INTO OrderItems (order_id, product_id, quantity)
-VALUES (1, 2, 3);
-INSERT INTO OrderItems (order_id, product_id, quantity)
-VALUES (2, 3, 2);
-```
-5. Inserting data into the Categories table:
-```sql
-INSERT INTO Categories (category_id, category_name)
-VALUES (1, 'Widgets');
-INSERT INTO Categories (category_id, category_name)
-VALUES (2, 'Gadgets');
-INSERT INTO Categories (category_id, category_name)
-VALUES (3, 'Accessories');
-```
-6. Inserting data into the Cities table:
-```sql
-INSERT INTO Cities (city_id, city_name)
-VALUES (1, 'New York');
-INSERT INTO Cities (city_id, city_name)
-VALUES (2, 'Los Angeles');
-INSERT INTO Cities (city_id, city_name)
-VALUES (3, 'Chicago');
+
+INSERT INTO Categories VALUES (1, 'Widgets');
+INSERT INTO Categories VALUES (2, 'Gadgets');
+INSERT INTO Categories VALUES (3, 'Accessories');
+
+INSERT INTO Cities VALUES (1, 'New York');
+INSERT INTO Cities VALUES (2, 'Los Angeles');
+INSERT INTO Cities VALUES (3, 'Chicago');
+
+INSERT INTO Customers VALUES (1, 'John Doe', 1);
+INSERT INTO Customers VALUES (2, 'Jane Smith', 2);
+INSERT INTO Customers VALUES (3, 'Michael Johnson', 3);
+
+INSERT INTO Orders VALUES (1, '2023-06-01', 1);
+INSERT INTO Orders VALUES (2, '2023-06-10', 2);
+INSERT INTO Orders VALUES (3, '2023-06-15', 3);
+
+INSERT INTO Products VALUES (1, 'Widget A', 1);
+INSERT INTO Products VALUES (2, 'Widget B', 1);
+INSERT INTO Products VALUES (3, 'Gadget X', 2);
+
+INSERT INTO OrderItems VALUES (1, 1, 5);
+INSERT INTO OrderItems VALUES (1, 2, 3);
+INSERT INTO OrderItems VALUES (2, 3, 2);
 ```
 
 Query Questions using JOIN:
