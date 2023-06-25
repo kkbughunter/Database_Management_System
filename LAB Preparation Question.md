@@ -267,11 +267,11 @@ INSERT INTO Venues (venue_id, venue_name, city_id)
 VALUES (3, 'Seminar Room C', 3);
 
 INSERT INTO Events (event_id, event_name, event_date, venue_id)
-VALUES (1, 'Conference A', '2023-07-15', 1);
+VALUES (1, 'Conference A', '2023-Jul-15', 1);
 INSERT INTO Events (event_id, event_name, event_date, venue_id)
-VALUES (2, 'Workshop B', '2023-08-02', 2);
+VALUES (2, 'Workshop B', '2023-Aug-02', 2);
 INSERT INTO Events (event_id, event_name, event_date, venue_id)
-VALUES (3, 'Seminar C', '2023-09-10', 3);
+VALUES (3, 'Seminar C', '2023-Sep-10', 3);
 
 INSERT INTO Participants (participant_id, participant_name, event_id)
 VALUES (1, 'John Doe', 1);
